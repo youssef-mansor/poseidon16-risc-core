@@ -1,7 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <string>
-#include "decoder.h"
+#include "ISA.h"
+using namespace poseidon16;
 
 std::string getOpcodeName(Opcode op)
 {

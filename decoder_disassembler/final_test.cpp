@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <iomanip>
-#include "decoder.h"
-#include "disassembler.h"
+#include "ISA.h"
+using namespace poseidon16;
 
 int main()
 {
