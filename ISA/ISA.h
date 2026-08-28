@@ -81,7 +81,8 @@ namespace poseidon16
 
     // ------------------------------------------------------------
     // 16-bit instruction field layout
-    //
+    // OPCODE_MASK | FIELD_A_MASK | FIELD_B_MASK | FIELD_C_MASK
+    // 
     // R-Type:
     // [15:12] opcode | [11:8] rd | [7:4] rs1 | [3:0] rs2
     //
@@ -94,13 +95,13 @@ namespace poseidon16
     // C-Type JAL:
     // [15:12] opcode | [11:8] rd | [7:0] off8
     // ------------------------------------------------------------
-    constexpr std::uint16_t OPCODE_MASK = 0xF000;
+    constexpr std::uint16_t OPCODE_MASK  = 0xF000;
     constexpr std::uint16_t FIELD_A_MASK = 0x0F00;
     constexpr std::uint16_t FIELD_B_MASK = 0x00F0;
     constexpr std::uint16_t FIELD_C_MASK = 0x000F;
-    constexpr std::uint16_t OFF8_MASK = 0x00FF;
+    constexpr std::uint16_t OFF8_MASK    = 0x00FF;
 
-    constexpr std::uint8_t OPCODE_SHIFT = 12;
+    constexpr std::uint8_t OPCODE_SHIFT  = 12;
     constexpr std::uint8_t FIELD_A_SHIFT = 8;
     constexpr std::uint8_t FIELD_B_SHIFT = 4;
 
