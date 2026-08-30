@@ -28,7 +28,7 @@ public:
     void next_instr() { // since it is byte addressable and instructions is 2 bytes
         pc += 2; 
     } 
-    void update_pc(u32 offset) {  // to handle jumps and conditions
+    void update_pc(i32 offset) {  // to handle jumps and conditions
         pc += offset; 
     }
 
