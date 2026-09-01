@@ -48,9 +48,9 @@ namespace poseidon16
         ADDI  = 0x8, 
         ANDI  = 0x9,
         ORI   = 0xA,
-        //SLTI  = 0xB, // not defined in the document by eng. ramy so won't implement
-        LOAD  = 0xC, // by reem 
-        STORE = 0xD, // by reem
+        SLTI  = 0xB, 
+        LW    = 0xC, // by reem 
+        SW    = 0xD, // by reem
 
         BEQ   = 0xE,
         JAL   = 0xF

@@ -1,4 +1,5 @@
 #include "ISA.h"
+#include "state.h"
 
 namespace poseidon16
 {
@@ -38,7 +39,7 @@ namespace poseidon16
             decoded.format = Format::I;
             decoded.rs1 = (instruction & FIELD_B_MASK) >> FIELD_B_SHIFT;
 
-            if (decoded.opcode == Opcode::STORE)
+            if (decoded.opcode == Opcode::SW)
             {
                 decoded.rs2 = (instruction & FIELD_A_MASK) >> FIELD_A_SHIFT;
             }
@@ -104,12 +105,12 @@ namespace poseidon16
             case Opcode::ANDI:
             case Opcode::ORI:
             //case Opcode::SLTI: not required 
-            case Opcode::LOAD:
+            case Opcode::LW:
                 ready.reg1_data = regs.read(decoded.rs1);
                 ready.reg2_data = 0;
                 break;
 
-            case Opcode::STORE:
+            case Opcode::SW:
                 ready.reg1_data = regs.read(decoded.rs1);
                 ready.reg2_data = regs.read(decoded.rs2);
                 break;

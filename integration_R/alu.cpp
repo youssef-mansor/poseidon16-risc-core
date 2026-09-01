@@ -1,17 +1,10 @@
-#ifndef POSEIDON16_ALU_H
-#define POSEIDON16_ALU_H
 
 #include "ISA.h"
-#include <cstdint>
-#include <stdexcept>
 
 namespace poseidon16
 {
 
-class ALU
-{
-public:
-    static action execute(ReadyInstruction insta)
+    action ALU :: execute(ReadyInstruction insta)
     {
         action execution_update{};
 
@@ -19,14 +12,14 @@ public:
 
         switch (insta.opcode)
         {   
-            case Opcode::STORE: // i need to calculate the address
+            case Opcode::SW: // i need to calculate the address
              {
                 execution_update.result = insta.reg1_data + insta.immediate;
                 execution_update.flag   = 2;
                 break; 
             } 
             
-            case Opcode::LOAD: // i need to calculate the address 
+            case Opcode::LW: // i need to calculate the address 
             {
                 execution_update.result = insta.reg1_data + insta.immediate;
                 execution_update.flag   = 1;
@@ -118,7 +111,3 @@ public:
 
     }
 };
-
-}
-
-#endif // POSEIDON16_ALU_H

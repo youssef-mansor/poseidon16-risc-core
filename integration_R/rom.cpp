@@ -1,4 +1,5 @@
-#include "rom.h"
+//#include "rom.h"
+#include "ISA.h"
 #include <stdexcept>
 
 namespace poseidon16

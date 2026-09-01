@@ -1,0 +1,18 @@
+#For testing the fetch
+g++ -std=c++17 main.cpp rom.cpp -o fetch_test 
+./fetch_test
+
+
+#for testing the Decoder > Fetch
+g++ -std=c++17 main.cpp rom.cpp decoder.cpp -o fetch_test.exe 
+./fetch_test
+
+
+#for testing the Decoder > Fetch > Dissambler
+g++ -std=c++17 main.cpp rom.cpp decoder.cpp disassembler.cpp -o disassembler_test.exe
+.\disassembler_test.exe
+
+
+#for testing the Decoder > Fetch > Execute
+g++ -std=c++17 main.cpp rom.cpp decoder.cpp alu.cpp state.cpp -o execute_test.exe
+./execute_test.exe

@@ -32,9 +32,9 @@ namespace poseidon16
             return "ORI";
         //case Opcode::SLTI:
           //  return "SLTI";
-        case Opcode::LOAD:
+        case Opcode::LW:
             return "LW";
-        case Opcode::STORE:
+        case Opcode::SW:
             return "SW";
 
         case Opcode::BEQ:
