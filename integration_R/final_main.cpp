@@ -212,28 +212,44 @@ int main()
 
 
 
+
         // ------------------------------------------------------------
-        // Print final register file
+        // Print updated register only.
+        // On the final iteration, print the complete register file.
         // ------------------------------------------------------------
 
-        std::cout << "========================================\n";
-        std::cout << "Final register values:\n";
-        std::cout << "========================================\n";
+        bool last_instruction =
+            (current_pc + INSTRUCTION_BYTES >= program.size());
 
-        for (int i = 0; i < 16; ++i)
+        if (last_instruction)
         {
-            std::cout << "R"
+            std::cout << "\n========================================\n";
+            std::cout << "Final register values:\n";
+            std::cout << "========================================\n";
+
+            for (int i = 0; i < NUM_REGISTERS; ++i)
+            {
+                std::cout << "R"
+                        << std::dec
+                        << i
+                        << " = "
+                        << regs.read(i)
+                        << '\n';
+            }
+
+            std::cout << '\n';
+        }
+        else if (result.flag == 0 && result.rd != ZERO_REGISTER)
+        {
+            std::cout << "Updated: R"
                     << std::dec
-                    << i
+                    << static_cast<int>(result.rd)
                     << " = "
-                    << regs.read(i)
+                    << regs.read(result.rd)
+                    << '\n'
                     << '\n';
         }
-        std :: cout << '\n';
 
-        // ========================================================
-        // Move to next instruction
-        // ========================================================
 
         rom.next_instr();
     }
